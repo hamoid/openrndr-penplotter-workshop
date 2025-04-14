@@ -2,7 +2,7 @@
 @file:Title("Introduction to Kotlin")
 @file:ParentTitle("Kotlin language and tools")
 @file:Order("100")
-@file:URL("kotlinLanguageAndTools/kotlin")
+@file:URL("kotlinLangAndTools/kotlinLanguageIntro")
 
 package docs.`10_Kotlin_lang_and_tools`
 
@@ -20,12 +20,10 @@ fun main() {
     [w3schools](https://www.w3schools.com/kotlin/kotlin_intro.php)
     might be a good place to start. 
     
-    The website includes a code editor, but you can also use
-    the official online editor found at
+    You can test your code in the official online editor found at
     [play.kotlinlang.org](https://play.kotlinlang.org/). 
-    In this online editor we can type code, run text-based programs 
-    (no graphics) and study the output without installing anything 
-    on our computer.  
+    There we can write and run text-based programs 
+    (no graphics) and study the output without downloading anything.  
         
     Once we are familiar with the basics we are able 
     to start having fun with OPENRNDR.            

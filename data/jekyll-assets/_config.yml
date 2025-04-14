@@ -20,7 +20,7 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 
-title: OPENRNDR GUIDE
+title: OPENRNDR for pen plotters
 email: info@openrndr.org
 description: >- # this means to ignore newlines until "baseurl:"
   Guide for OPENRNDR
@@ -30,7 +30,7 @@ twitter_username: openrndr
 github_username: openrndr
 
 ga_tracking: UA-109731993-1
-ga_tracking_anonymize_ip: true # Use GDPR compliant Google Analytics settings (true by default)
+ga_tracking_anonymize_ip: true # Use GDPR-compliant Google Analytics settings (true by default)
 
 # Build settings
 #theme: just-the-docs

@@ -97,9 +97,10 @@ a:not([class]) {
 }
 .site-title {
     flex-grow: unset;
-    margin: auto;
+    margin: 0px 60px 0px 20px;
     padding-left: 0;
     padding-right: 0;
+    font-size: 120% !important;
 }
 .site-title:hover {
 	background-image: none;

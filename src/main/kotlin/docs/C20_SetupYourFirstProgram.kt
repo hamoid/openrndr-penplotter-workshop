@@ -2,7 +2,7 @@
 @file:Title("Set up your first program")
 @file:ParentTitle("What is OPENRNDR?")
 @file:Order("20")
-@file:URL("/setUpYourFirstProgram")
+@file:URL("/setupYourFirstProgram")
 
 package docs
 

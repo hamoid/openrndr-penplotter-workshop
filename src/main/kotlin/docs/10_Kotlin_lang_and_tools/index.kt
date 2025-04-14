@@ -1,7 +1,7 @@
 @file:Suppress("UNUSED_EXPRESSION")
 @file:Title("Kotlin language and tools")
-@file:Order("1020")
-@file:URL("kotlinLanguageAndTools/index")
+@file:Order("1010")
+@file:URL("kotlinLangAndTools/index")
 
 package docs.`10_Kotlin_lang_and_tools`
 

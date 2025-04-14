@@ -2,7 +2,7 @@
 @file:Title("What is Gradle?")
 @file:ParentTitle("Kotlin language and tools")
 @file:Order("110")
-@file:URL("kotlinLanguageAndTools/gradle")
+@file:URL("kotlinLangAndTools/gradle")
 
 package docs.`10_Kotlin_lang_and_tools`
 
