@@ -1,4 +1,4 @@
-rootProject.name = "openrndr-guide"
+rootProject.name = "ccu-penplotter-workshop"
 
 pluginManagement {
     repositories {

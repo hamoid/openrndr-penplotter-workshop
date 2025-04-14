@@ -1,12 +1,6 @@
-# Source files for the  [OPENRNDR guide](https://guide.openrndr.org/#/).
+# CCU OPENRNDR pen plotter workshop
 
-This repository contains the source files to generate the OPENRNDR guide.
+April 19th, 2025
 
-To contribute please take a look at
-[contributing.md](https://github.com/openrndr/openrndr-guide/blob/main/contributing.md).
+This repo is a fork of https://github.com/openrndr/openrndr-guide/
 
-Find a [readable version at guide.openrndr.org](https://guide.openrndr.org)
-
-A separate repository with the OPENRNDR example programs
-automatically extracted from this guide can be found at
-[`openrndr-examples`](https://github.com/openrndr/openrndr-examples).
