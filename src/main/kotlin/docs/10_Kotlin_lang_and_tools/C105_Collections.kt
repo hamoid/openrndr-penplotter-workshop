@@ -1,9 +1,9 @@
 @file:Suppress("UNUSED_EXPRESSION")
 @file:Title("Collections")
-@file:Order("100")
-@file:ParentTitle("Repetition")
-@file:URL("repetition/collections")
-package docs.`25_Repetition`
+@file:Order("105")
+@file:ParentTitle("Kotlin language and tools")
+@file:URL("kotlinLangAndTools/collections")
+package docs.`10_Kotlin_lang_and_tools`
 
 import org.openrndr.application
 import org.openrndr.color.ColorRGBa

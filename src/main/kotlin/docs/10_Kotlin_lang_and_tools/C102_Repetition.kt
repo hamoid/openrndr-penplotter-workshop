@@ -1,8 +1,9 @@
 @file:Suppress("UNUSED_EXPRESSION")
 @file:Title("Repetition")
-@file:Order("1025")
-@file:URL("repetition/index")
-package docs.`25_Repetition`
+@file:Order("102")
+@file:URL("kotlinLangAndTools/repetition")
+@file:ParentTitle("Kotlin language and tools")
+package docs.`10_Kotlin_lang_and_tools`
 
 import org.openrndr.dokgen.annotations.*
 
@@ -34,7 +35,7 @@ fun main() {
     By using a [`for`](https://kotlinlang.org/docs/control-flow.html#for-loops) 
     loop we have more control over the start and end values.
     ```kotlin
-    for(i in 10 until 20) {
+    for(i in 10 until 20 step 2) {
         println(i)
     }
     ```
