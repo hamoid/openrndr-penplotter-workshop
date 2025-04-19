@@ -1,10 +1,10 @@
 [versions]
 kotlin = "2.0.20"
 jvmTarget = "17"
-openrndr = "0.4.4"
-orx = "0.4.4"
+openrndr = "0.4.5-alpha8"
+orx = "0.4.5-alpha8"
 orml = "0.4.1"
-coroutines = "1.9.0"
+coroutines = "1.10.1"
 slf4j = "2.0.16"
 gitPublish = "5.1.0"
 jsoup = "1.18.3"
@@ -32,12 +32,13 @@ openrndr-extensions = { group = "org.openrndr", name = "openrndr-extensions", ve
 openrndr-ffmpeg = { group = "org.openrndr", name = "openrndr-ffmpeg", version.ref = "openrndr" }
 openrndr-filter = { group = "org.openrndr", name = "openrndr-filter", version.ref = "openrndr" }
 openrndr-gl3 = { group = "org.openrndr", name = "openrndr-gl3", version.ref = "openrndr" }
-openrndr-svg = { group = "org.openrndr", name = "openrndr-svg", version.ref = "openrndr" }
 openrndr-dialogs = { group = "org.openrndr", name = "openrndr-dialogs", version.ref = "openrndr" }
 
 # ORX
 orx-camera = { group = "org.openrndr.extra", name = "orx-camera", version.ref = "orx" }
 orx-compositor = { group = "org.openrndr.extra", name = "orx-compositor", version.ref = "orx" }
+orx-composition = { group = "org.openrndr.extra", name = "orx-composition", version.ref = "orx" }
+orx-color = { group = "org.openrndr.extra", name = "orx-color", version.ref = "orx" }
 orx-fx = { group = "org.openrndr.extra", name = "orx-fx", version.ref = "orx" }
 orx-gui = { group = "org.openrndr.extra", name = "orx-gui", version.ref = "orx" }
 orx-image-fit = { group = "org.openrndr.extra", name = "orx-image-fit", version.ref = "orx" }
@@ -53,7 +54,9 @@ orx-panel = { group = "org.openrndr.extra", name = "orx-panel", version.ref = "o
 orx-poisson-fill = { group = "org.openrndr.extra", name = "orx-poisson-fill", version.ref = "orx" }
 orx-shade-styles = { group = "org.openrndr.extra", name = "orx-shade-styles", version.ref = "orx" }
 orx-shapes = { group = "org.openrndr.extra", name = "orx-shapes", version.ref = "orx" }
-
+orx-svg = { group = "org.openrndr.extra", name = "orx-svg", version.ref = "orx" }
+orx-text-writer = { group = "org.openrndr.extra", name = "orx-text-writer", version.ref = "orx" }
+orx-text-on-contour = { group = "org.openrndr.extra", name = "orx-text-on-contour", version.ref = "orx" }
 [plugins]
 kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
 dokgen = { id = "org.openrndr.dokgen-gradle", version = { require = "latest.release" } }
@@ -62,7 +65,7 @@ versions = { id = "com.github.ben-manes.versions", version.ref = "versions" }
 
 [bundles]
 openrndr-core = [
-    "openrndr-core",
+    #"openrndr-core",
     "openrndr-extensions",
     "openrndr-ffmpeg"
 ]
@@ -70,12 +73,13 @@ openrndr-rest = [
     "openrndr-animatable",
     "openrndr-filter",
     "openrndr-gl3",
-    "openrndr-svg",
     "openrndr-dialogs"
 ]
 orx = [
     "orx-camera",
+    "orx-composition",
     "orx-compositor",
+    "orx-color",
     "orx-fx",
     "orx-gui",
     "orx-image-fit",
@@ -90,5 +94,8 @@ orx = [
     "orx-panel",
     "orx-poisson-fill",
     "orx-shade-styles",
-    "orx-shapes"
+    "orx-shapes",
+    "orx-text-writer",
+    "orx-text-on-contour",
+    "orx-svg"
 ]
