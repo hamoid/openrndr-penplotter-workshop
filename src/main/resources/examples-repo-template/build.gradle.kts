@@ -66,6 +66,8 @@ val orxFeatures = setOf<String>(
 //  "orx-turtle",
     "orx-video-profiles",
     "orx-view-box",
+    "orx-text-writer",
+    "orx-svg"
 )
 
 /** ## additional ORML features to be added to this project */
@@ -287,7 +289,7 @@ class Openrndr {
             implementation(openrndr("openal"))
             runtimeOnly(openrndrNatives("openal"))
             implementation(openrndr("application"))
-            implementation(openrndr("svg"))
+//            implementation(openrndr("svg"))
             implementation(openrndr("animatable"))
             implementation(openrndr("extensions"))
             implementation(openrndr("filter"))
@@ -335,7 +337,7 @@ if (properties["openrndr.tasks"] == "true") {
             "Code" to "file:*.kt||file:*.frag||file:*.vert||file:*.glsl",
             "Text" to "file:*.txt||file:*.md||file:*.xml||file:*.json",
             "Gradle" to "file[*buildSrc*]:*/||file:*gradle.*||file:*.gradle||file:*/gradle-wrapper.properties||file:*.toml",
-            "Media" to "file:*.png||file:*.jpg||file:*.dds||file:*.exr||file:*.mp3||file:*.wav||file:*.png||file:*.mov||file:*.svg"
+            "Media" to "file:*.png||file:*.jpg||file:*.dds||file:*.exr||file:*.mp3||file:*.wav||file:*.mp4||file:*.mov||file:*.svg"
         )
         files.forEach { (name, pattern) ->
             val file = File(scopesFolder, "__$name.xml")

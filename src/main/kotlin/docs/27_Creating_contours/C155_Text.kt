@@ -1,24 +1,19 @@
 @file:Suppress("UNUSED_EXPRESSION")
 @file:Title("Text")
-@file:ParentTitle("Drawing")
+@file:ParentTitle("Creating contours")
 @file:Order("155")
-@file:URL("drawing/text")
+@file:URL("creatingContours/text")
 
-package docs.`30_Drawing`
+package docs.`27_Creating_contours`
 
 import org.openrndr.application
 import org.openrndr.color.ColorRGBa
-import org.openrndr.color.rgb
 import org.openrndr.dokgen.annotations.*
 import org.openrndr.draw.font.loadFace
-import org.openrndr.draw.loadFont
+import org.openrndr.extra.composition.composition
+import org.openrndr.extra.composition.drawComposition
 import org.openrndr.extra.shapes.rectify.rectified
 import org.openrndr.shape.LineSegment
-
-import org.openrndr.shape.Rectangle
-import org.openrndr.writer
-import kotlin.math.cos
-import kotlin.math.sin
 
 fun main() {
     @Text
@@ -26,7 +21,7 @@ fun main() {
     # Drawing text
     
     OPENRNDR comes with support for rendering bitmap text, but
-    for plotting purposes we are more interested in drawing the contours of fonts.
+    for plotting purposes we are more interested in font contours.
 
     ### Working with text contours
     
@@ -44,21 +39,21 @@ fun main() {
     application {
         program {
             val face = loadFace("data/fonts/default.otf")
-            val shape = face.glyphForCharacter(character = '8').shape(size = 750.0)
+            val shape = face.glyphForCharacter(character = '8').shape(1.0)
+
+            val myDesign = drawComposition {
+                // Center the shape
+                translate(drawer.bounds.center - shape.bounds.center)
+                fill = null
+
+                // Draw each contour found in the character '8' with a different color
+                shape.contours.forEach { contour(it) }
+
+            }
 
             extend {
                 drawer.clear(ColorRGBa.WHITE)
-                // Center the shape on the screen
-                drawer.translate(drawer.bounds.center - shape.bounds.center)
-
-                drawer.fill = null
-                drawer.strokeWeight = 2.0
-
-                // Draw each contour found in the character '8' with a different color
-                shape.contours.forEachIndexed { i, it ->
-                    drawer.stroke = listOf(ColorRGBa.PINK, rgb(0.33), rgb(0.66))[i]
-                    drawer.contour(it)
-                }
+                drawer.composition(myDesign)
             }
         }
     }
@@ -77,10 +72,10 @@ fun main() {
     application {
         program {
             val face = loadFace("data/fonts/default.otf")
-            val shape = face.glyphForCharacter('8').shape(750.0)
+            val shape = face.glyphForCharacter('8').shape(1.0)
 
             // Map each contour in the shape to a list of LineSegment,
-            // then combine the resulting lists by calling `.flatten()`.
+            // then combine the resulting lists into one list by calling `.flatten()`.
             val normals = shape.contours.map { c ->
                 // Work with rectified contours so `t` values are evenly spaced.
                 val rc = c.rectified()
@@ -93,17 +88,14 @@ fun main() {
                     )
                 }
             }.flatten()
+
+            val myDesign = drawComposition {
+                translate(drawer.bounds.center - shape.bounds.center)
+                lineSegments(normals)
+            }
             extend {
                 drawer.clear(ColorRGBa.WHITE)
-                drawer.translate(drawer.bounds.center - shape.bounds.center)
-
-                drawer.fill = ColorRGBa.PINK
-                drawer.stroke = null
-                drawer.shape(shape)
-
-                drawer.stroke = ColorRGBa.BLACK
-                drawer.strokeWeight = 2.0
-                drawer.lineSegments(normals)
+                drawer.composition(myDesign)
             }
         }
     }

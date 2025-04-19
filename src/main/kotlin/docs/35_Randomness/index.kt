@@ -1,8 +1,9 @@
 @file:Suppress("UNUSED_EXPRESSION")
 @file:Title("Randomness")
-@file:Order("1030")
+@file:Order("1035")
 @file:URL("randomness/index")
-package docs.`30_Randomness`
+
+package docs.`35_Randomness`
 
 import org.openrndr.application
 import org.openrndr.color.ColorRGBa

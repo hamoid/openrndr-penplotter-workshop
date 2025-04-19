@@ -1,25 +1,30 @@
 @file:Suppress("UNUSED_EXPRESSION")
 @file:Title("Vectors")
-@file:ParentTitle("Drawing")
+@file:ParentTitle("Creating contours")
 @file:Order("210")
-@file:URL("drawing/vectors")
+@file:URL("creatingContours/vectors")
 
-package docs.`30_Drawing`
+package docs.`27_Creating_contours`
 
+import org.openrndr.application
+import org.openrndr.color.ColorRGBa
 import org.openrndr.dokgen.annotations.*
+import org.openrndr.extra.composition.composition
+import org.openrndr.extra.composition.drawComposition
+import org.openrndr.extra.shapes.primitives.regularStar
+import org.openrndr.math.Polar
 
 
 fun main() {
-    @Text 
+    @Text
     """
     # Vectors
     
-    The `Vector2`, `Vector3` and `Vector4` classes are used for 2, 3 and 4 dimensional vector representations. Vector instances are immutable; once a Vector has been instantiated its values cannot be changed.
+    The `Vector2`, `Vector3` and `Vector4` classes are used for 2, 3 and 4 dimensional vector representations. 
+    Vector instances are immutable; once a Vector has been instantiated its values cannot be changed.
     
     ```kotlin
     val v2 = Vector2(1.0, 10.0)
-    val v3 = Vector3(1.0, 1.0, 1.0)
-    val v3 = Vector4(1.0, 1.0, 1.0, 1.0)
     ```
     
     ## Standard vectors
@@ -27,18 +32,7 @@ fun main() {
     ```kotlin
     Vector2.ZERO    // (0, 0)
     Vector2.UNIT_X  // (1, 0)
-    Vector2.UNIT_Y  // (0, 1)
-    
-    Vector3.ZERO    // (0, 0, 0)
-    Vector3.UNIT_X  // (1, 0, 0)
-    Vector3.UNIT_Y  // (0, 1, 0)
-    Vector3.UNIT_Z  // (0, 0, 1)
-    
-    Vector4.ZERO    // (0, 0, 0, 0)
-    Vector4.UNIT_X  // (1, 0, 0, 0)
-    Vector4.UNIT_Y  // (0, 1, 0, 0)
-    Vector4.UNIT_Z  // (0, 0, 1, 0)
-    Vector4.UNIT_W  // (0, 0, 0, 1)
+    Vector2.UNIT_Y  // (0, 1)    
     ```
     
     ## Vector arithmetic
@@ -115,13 +109,44 @@ fun main() {
     Generating random vectors
     
     ```kotlin
-    val v2 = Random.vector2(-1.0, 1.0)
-    val v3 = Random.vector3(-1.0, 1.0)
-    val v4 = Random.vector4(-1.0, 1.0)
+    val v2 = Vector2.uniform(-1.0, 1.0)
     ```
     
     To generate random distributions of vectors see 
     [orx-noise](https://guide.openrndr.org/ORX/noise.html).
-
+    
+    ## Creating a Vector2 using Polar coordinates    
+    
+    `Polar()` has two arguments: angle in degrees and radius.
+    We use `.cartesian` to convert it to a `Vector2`.   
     """
+
+    @Media.Image "../media/polar-001.png"
+
+    @Application
+    @ProduceScreenshot("media/polar-001.png")
+    @Code
+    application {
+        configure {
+            width = 770
+            height = 300
+        }
+        program {
+            val myDesign = drawComposition {
+                repeat(200) {
+                    val p = Polar(it * 10.0, 50.0 + it * 1.0).cartesian + 200.0
+                    contour(regularStar(5, 4.0, 8.0, p, it * 1.0))
+                }
+            }
+            extend {
+                drawer.clear(ColorRGBa.WHITE)
+                drawer.composition(myDesign)
+            }
+        }
+    }
+
+    @Text
+    """
+    We can use `Polar.fromVector(v2)` to construct a Polar from an existing cartesian vector.
+    """.trimIndent()
 }

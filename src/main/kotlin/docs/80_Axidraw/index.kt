@@ -47,4 +47,23 @@ fun main() {
     [AxiCLI](https://axidraw.com/doc/cli_api/#introduction).
 
     """.trimIndent()
+
+    @Text
+    """ 
+    ### OPENRNDR and `fill`
+        
+    When drawing closed contours to the screen, the current fill color is used to fill the
+    shape with that color, occluding anything that might have been behind the contour.
+    
+    But pen plotters do not have a fill color! They only draw contours.
+    Therefore it may be helpful to set `drawer.fill = null` in OPENRNDR so things look
+    the same way on the screen and on paper.
+    
+    In the past simulating the occlusion caused by `fill` was not so simple: it involved
+    doing numerous 2D boolean operations. The good news is that the AxiDraw software
+    was updated to provide an option for occlusion! So now it is possible to have
+    fill colors occlude contours. With the line hiding option enabled, a filled circle
+    on top would hide the contour of a circle behind it. If you want to use this fetaure, we
+    recommend using the paper color both for `fill` and for `.clear()`.
+    """
 }

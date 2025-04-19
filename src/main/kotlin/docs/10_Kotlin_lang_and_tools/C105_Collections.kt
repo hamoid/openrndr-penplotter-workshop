@@ -11,9 +11,9 @@ import org.openrndr.dokgen.annotations.*
 import org.openrndr.extra.noise.Random
 import org.openrndr.extra.noise.scatter
 import org.openrndr.extra.noise.uniform
-import org.openrndr.extra.shapes.regularPolygon
+import org.openrndr.extra.shapes.primitives.regularPolygon
 import org.openrndr.shape.Circle
-import org.openrndr.shape.Segment
+import org.openrndr.shape.Segment2D
 
 fun main() {
     @Text """
@@ -159,7 +159,7 @@ fun main() {
                     val t = it / 200.0
                     val point = circle.position(t)
                     val normal = circle.normal(t)
-                    Segment(point, point + normal * 30.0).contour
+                    Segment2D(point, point + normal * 30.0).contour
                 }
             }.flatten().filter { Random.bool(0.5) }
             extend {
